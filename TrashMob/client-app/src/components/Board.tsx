@@ -20,8 +20,9 @@ export const Board: React.FC = () => {
     return (
         <>
             <Container fluid className='bg-grass'>
-                <Row className="text-center pt-0">
-                    <Col md={7} className="d-flex flex-column justify-content-center pr-5">
+                <Row className="pt-0">
+                    <Col md={2} />
+                    <Col md={5} className="d-flex flex-column justify-content-center pr-5">
                         <h1 className='font-weight-bold'>Board of Directors</h1>
                         <h4 className="font-weight-bold">
                             Meet our team!
