@@ -21,16 +21,17 @@ export const Board: React.FC = () => {
         <>
             <Container fluid className='bg-grass'>
                 <Row className="pt-0">
-                    <Col md={2} />
-                    <Col md={5} className="d-flex flex-column justify-content-center pr-5">
-                        <h1 className='font-weight-bold'>Board of Directors</h1>
-                        <h4 className="font-weight-bold">
-                            Meet our team!
-                        </h4>
-                    </Col>
-                    <Col md={5}>
-                        <Image src={globes} alt="globes" className="h-100 mt-0" />
-                    </Col>
+                    <Container className='d-flex flex-row'>
+                        <Col md={7} className="d-flex flex-column justify-content-center pl-0 pr-5">
+                            <h1 className='font-weight-bold'>Board of Directors</h1>
+                            <h4 className="font-weight-bold">
+                                Meet our team!
+                            </h4>
+                        </Col>
+                        <Col md={5}>
+                            <Image src={globes} alt="globes" className="h-100 mt-0" />
+                        </Col>
+                    </Container>
                 </Row>
             </Container>
             <Container className='my-5 pb-5'>
