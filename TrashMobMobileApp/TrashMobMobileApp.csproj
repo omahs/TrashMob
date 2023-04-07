@@ -19,7 +19,7 @@
 		<ApplicationIdGuid>788A46C9-E67B-45C1-AF56-EE14F93B7DD1</ApplicationIdGuid>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>0.1.1</ApplicationDisplayVersion>
+		<ApplicationDisplayVersion>1</ApplicationDisplayVersion>
 		<ApplicationVersion>2</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.1</SupportedOSPlatformVersion>
@@ -68,6 +68,11 @@
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
+    <PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
+      <CodesignKey>Apple Development: Created via API (HFGU57QSN5)</CodesignKey>
+      <CodesignProvision>VS: eco.trashmobbtg Development</CodesignProvision>
+      <ProvisioningType>automatic</ProvisioningType>
+    </PropertyGroup>
 
 	<ItemGroup>
 		<None Include="Info.plist" Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
@@ -106,45 +111,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="..\TrashMob.Models\Address.cs" Link="Models\Address.cs" />
-	  <Compile Include="..\TrashMob.Models\BaseModel.cs" Link="Models\BaseModel.cs" />
-	  <Compile Include="..\TrashMob.Models\ContactRequest.cs" Link="Models\ContactRequest.cs" />
-	  <Compile Include="..\TrashMob.Models\Event.cs" Link="Models\Event.cs" />
-	  <Compile Include="..\TrashMob.Models\EventAttendee.cs" Link="Models\EventAttendee.cs" />
-	  <Compile Include="..\TrashMob.Models\EventPartnerLocationService.cs" Link="Models\EventPartnerLocationService.cs" />
-	  <Compile Include="..\TrashMob.Models\EventPartnerLocationServiceStatus.cs" Link="Models\EventPartnerLocationServiceStatus.cs" />
-	  <Compile Include="..\TrashMob.Models\EventStatus.cs" Link="Models\EventStatus.cs" />
-	  <Compile Include="..\TrashMob.Models\EventSummary.cs" Link="Models\EventSummary.cs" />
-	  <Compile Include="..\TrashMob.Models\EventType.cs" Link="Models\EventType.cs" />
-	  <Compile Include="..\TrashMob.Models\InvitationStatus.cs" Link="Models\InvitationStatus.cs" />
-	  <Compile Include="..\TrashMob.Models\KeyedModel.cs" Link="Models\KeyedModel.cs" />
-	  <Compile Include="..\TrashMob.Models\LookupModel.cs" Link="Models\LookupModel.cs" />
-	  <Compile Include="..\TrashMob.Models\MessageRequest.cs" Link="Models\MessageRequest.cs" />
-	  <Compile Include="..\TrashMob.Models\NonEventUserNotification.cs" Link="Models\NonEventUserNotification.cs" />
-	  <Compile Include="..\TrashMob.Models\Partner.cs" Link="Models\Partner.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerAdmin.cs" Link="Models\PartnerAdmin.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerAdminInvitation.cs" Link="Models\PartnerAdminInvitation.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerContact.cs" Link="Models\PartnerContact.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerDocument.cs" Link="Models\PartnerDocument.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerLocation.cs" Link="Models\PartnerLocation.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerLocationContact.cs" Link="Models\PartnerLocationContact.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerLocationService.cs" Link="Models\PartnerLocationService.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerRequest.cs" Link="Models\PartnerRequest.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerRequestStatus.cs" Link="Models\PartnerRequestStatus.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerSocialMediaAccount.cs" Link="Models\PartnerSocialMediaAccount.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerStatus.cs" Link="Models\PartnerStatus.cs" />
-	  <Compile Include="..\TrashMob.Models\PartnerType.cs" Link="Models\PartnerType.cs" />
-	  <Compile Include="..\TrashMob.Models\PickupLocation.cs" Link="Models\PickupLocation.cs" />
-	  <Compile Include="..\TrashMob.Models\ServiceType.cs" Link="Models\ServiceType.cs" />
-	  <Compile Include="..\TrashMob.Models\SiteMetric.cs" Link="Models\SiteMetric.cs" />
-	  <Compile Include="..\TrashMob.Models\SocialMediaAccountType.cs" Link="Models\SocialMediaAccountType.cs" />
-	  <Compile Include="..\TrashMob.Models\User.cs" Link="Models\User.cs" />
-	  <Compile Include="..\TrashMob.Models\UserNotification.cs" Link="Models\UserNotification.cs" />
-	  <Compile Include="..\TrashMob.Models\UserNotificationType.cs" Link="Models\UserNotificationType.cs" />
-	  <Compile Include="..\TrashMob.Models\Waiver.cs" Link="Models\Waiver.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <EmbeddedResource Include="appSettings.Development.json" />
 	  <EmbeddedResource Include="appSettings.json" />
 	</ItemGroup>
@@ -168,6 +134,11 @@
     <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
       <PackageReference Include="Plugin.CurrentActivity" Version="2.1.0.4">
       </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TrashMob.Core\TrashMob.Core.csproj" />
+      <ProjectReference Include="..\TrashMob.Razor\TrashMob.Razor.csproj" />
     </ItemGroup>
     <ItemGroup>
       <Compile Update="Features\Map\MauiMapPageMultipleEvent.xaml.cs">

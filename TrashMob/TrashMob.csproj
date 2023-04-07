@@ -148,6 +148,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TrashMob.Core\TrashMob.Core.csproj" />
     <ProjectReference Include="..\TrashMob.Shared\TrashMob.Shared.csproj" />
   </ItemGroup>
 
